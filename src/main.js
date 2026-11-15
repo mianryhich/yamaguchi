@@ -4,7 +4,6 @@ const slides = [...document.querySelectorAll('.slide')];
 const buttons = [...document.querySelectorAll('.wheel__button')];
 const rotor = document.querySelector('.wheel__items');
 const label = document.querySelector('.wheel__label');
-
 const desktop = window.matchMedia('(min-width: 1024px)');
 const reducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
@@ -26,11 +25,9 @@ let wheelDelta = 0;
 let lastWheelTime = 0;
 let labelAnimation = null;
 
-// Обновление колеса и подписи
 
 function updateWheel(animate = false) {
   const shouldAnimate = animate && !reducedMotion.matches;
-
   if (!shouldAnimate) {
     rotor.style.transition = 'none';
 
@@ -38,7 +35,6 @@ function updateWheel(animate = false) {
       button.style.transition = 'none';
     });
   }
-
   rotor.style.setProperty(
     '--rotation',
     `${-currentSlide * angleStep}deg`
@@ -48,11 +44,8 @@ function updateWheel(animate = false) {
     const isActive = index === currentSlide;
 
     button.style.setProperty('--angle', `${index * angleStep}deg`);
-
-    // Удаляем координаты старой реализации, если они остались.
     button.style.removeProperty('left');
     button.style.removeProperty('top');
-
     button.classList.toggle('is-active', isActive);
 
     if (isActive) {
@@ -83,7 +76,6 @@ function updateWheel(animate = false) {
       }
     );
   } else {
-    // Фиксируем начальное положение без анимации.
     void rotor.offsetWidth;
 
     rotor.style.removeProperty('transition');
@@ -93,8 +85,6 @@ function updateWheel(animate = false) {
     });
   }
 }
-
-// Состояния карточек
 
 function renderSlides() {
   slides.forEach((slide, index) => {
@@ -112,8 +102,6 @@ function renderSlides() {
     }
   });
 }
-
-// Общая функция перехода для кнопок, прокрутки и клавиатуры
 
 function goToSlide(index) {
   if (!desktop.matches || performance.now() < lockedUntil) return;
@@ -147,15 +135,11 @@ function goToSlide(index) {
   updateWheel(true);
 }
 
-// Нажатие на иконку
-
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     goToSlide(Number(button.dataset.slide));
   });
 });
-
-// Прокрутка мышью или тачпадом
 
 window.addEventListener(
   'wheel',
@@ -209,8 +193,6 @@ window.addEventListener(
   { passive: false }
 );
 
-// Управление с клавиатуры
-
 window.addEventListener('keydown', (event) => {
   if (
     !desktop.matches ||
@@ -243,8 +225,6 @@ window.addEventListener('keydown', (event) => {
   event.preventDefault();
   goToSlide(targets[event.key]);
 });
-
-// Переключение между десктопной и мобильной раскладкой
 
 function configureLayout() {
   document.documentElement.classList.toggle(

@@ -1,0 +1,152 @@
+@use 'settings' as *;
+
+//Колесо навигации
+
+.wheel {
+  --wheel-unit: min(1px, 0.052083333vw, 0.111111111svh);
+
+  --diameter: calc(706 * var(--wheel-unit));
+  --track-width: calc(10.97 * var(--wheel-unit));
+  --radius: calc((var(--diameter) - var(--track-width)) / 2);
+  --active-x: calc(148 * var(--wheel-unit));
+
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 10;
+
+  width: calc(360 * var(--wheel-unit));
+  height: var(--diameter);
+
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  &__track {
+    display: none;
+  }
+
+  &__items {
+    --rotation: 0deg;
+
+    position: absolute;
+    top: 0;
+    left: calc(var(--active-x) - var(--diameter) / 2 - var(--radius));
+
+    width: var(--diameter);
+    height: var(--diameter);
+
+    transform: rotate(var(--rotation));
+    transition: transform $motion-duration $motion-easing;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      border: var(--track-width) solid $color-accent;
+      border-radius: 50%;
+    }
+  }
+
+  &__button {
+    --angle: 0deg;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: grid;
+    place-items: center;
+
+    width: calc(74 * var(--wheel-unit));
+    height: calc(74 * var(--wheel-unit));
+    margin: 0;
+    padding: calc(10 * var(--wheel-unit));
+
+    border: 0;
+    border-radius: 50%;
+    background-color: $color-mobile-page;
+    color: $color-icon-inactive;
+    box-shadow: calc(15.89 * var(--wheel-unit)) calc(13.91 * var(--wheel-unit)) calc(26.52 * var(--wheel-unit)) $color-wheel-shadow;
+
+    cursor: pointer;
+    pointer-events: auto;
+    transform-origin: 0 0;
+
+    transform:
+    rotate(var(--angle))
+    translateX(var(--radius))
+    rotate(calc(0deg - var(--angle) - var(--rotation)))
+    translate(-50%, -50%);
+
+    transition:
+    transform $motion-duration $motion-easing,
+    width 400ms ease,
+    height 400ms ease,
+    background-color 400ms ease,
+    color 400ms ease;
+
+    &.is-active {
+      width: calc(103 * var(--wheel-unit));
+      height: calc(103 * var(--wheel-unit));
+
+      background-color: $color-surface;
+      color: $color-mobile-page;
+    }
+
+    &:focus-visible {
+      outline: calc(3 * var(--wheel-unit)) solid $color-white;
+      outline-offset: calc(5 * var(--wheel-unit));
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: currentColor;
+
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    &--styler {
+      mask-image: url('/images/icon-styler.svg');
+      transform: translateY(calc(5 * var(--wheel-unit)));
+    }
+
+    &--feather {
+      mask-image: url('/images/icon-feather.svg');
+      mask-size: 82%;
+    }
+
+    &--fan {
+      mask-image: url('/images/icon-fan.svg');
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--active-x) + 70 * var(--wheel-unit));
+
+    width: calc(180 * var(--wheel-unit));
+    margin: 0;
+
+    color: $color-white;
+    font-size: calc(24 * var(--wheel-unit));
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: pre-line;
+
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 1023px) {
+  .wheel {
+    display: none;
+  }
+}
