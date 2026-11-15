@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/EuclidCircularA-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+$element-shadow: 15.63px 13.17px 24.68px -4.94px rgb(65 60 57 / 21%);
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #4b4b4b;
+  font-family: 'Euclid Circular A', Arial, sans-serif;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100svh;
+  padding: 85px;
+
+  background-color: #7f7875;
+
+  &__card {
+    width: 100%;
+    max-width: 1240px;
+    padding: 52px 52px 0;
+
+    border-radius: 70px;
+    background-image: url('/images/slide-1-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    font-size: 47.93px;
+    line-height: 1.01;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  &__badge {
+    width: fit-content;
+    margin: 32px auto 0;
+    padding: 9.91px 29.74px;
+
+    border-radius: 50px;
+    background-color: #fff;
+
+    font-size: 53.03px;
+    line-height: 1.01;
+    letter-spacing: -0.01em;
+
+    box-shadow: $element-shadow;
+  }
+
+  &__visual {
+    display: grid;
+    align-items: end;
+
+    grid-template-columns:
+      minmax(0, 243fr)
+      minmax(0, 650fr)
+      minmax(0, 243fr);
+  }
+
+  &__demo {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 48px;
+
+    img {
+      width: 100%;
+      border-radius: 32px;
+
+      box-shadow: $element-shadow;
+    }
+
+    &--styler .slide__label {
+      right: 0;
+      left: auto;
+
+      background-color: #fff;
+      color: #4b4b4b;
+    }
+  }
+
+  &__hero {
+    justify-self: center;
+
+    width: calc(100% * 674 / 650);
+    min-width: 0;
+    max-width: none;
+  }
+
+  &__label {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+
+    width: fit-content;
+    margin-bottom: 20.14px;
+    padding: 10.43px 27.87px;
+
+    border-radius: 40px;
+    background-color: #4b4b4b;
+    color: #fff;
+
+    font-size: 27.73px;
+    line-height: 1.27;
+    letter-spacing: -0.01em;
+    text-align: right;
+
+    box-shadow: $element-shadow;
+  }
+}
