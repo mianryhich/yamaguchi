@@ -1,0 +1,47 @@
+@use 'settings' as *;
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/EuclidCircularA-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: $color-text;
+  font-family: $font-main;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

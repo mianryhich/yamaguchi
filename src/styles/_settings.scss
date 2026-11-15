@@ -1,0 +1,34 @@
+@use 'sass:math';
+
+$color-text: #4b4b4b;
+$color-page: #7f7875;
+$color-mobile-page: #746d68;
+$color-surface: #dbdbdb;
+$color-white: #fff;
+$color-accent: #625b56;
+$color-subtitle: #737373;
+$color-mobile-subtitle: #454545;
+$color-icon-inactive: #b9b4b0;
+$color-feather: #726965;
+$color-shadow: rgb(65 60 57 / 21%);
+$color-wheel-shadow: rgb(89 82 76 / 80%);
+
+$font-main: 'Euclid Circular A', Arial, sans-serif;
+$font-description: 'Montserrat', Arial, sans-serif;
+$motion-duration: 700ms;
+$motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+@function mobile-unit($pixels) {
+  @return math.div($pixels, 3.2) * 1cqw;
+}
+
+@function card-unit($pixels) {
+  @return math.div($pixels, 12.4) * 1cqw;
+}
+
+$element-shadow: card-unit(15.63) card-unit(13.17) card-unit(24.68) card-unit(-4.94) $color-shadow;
+$element-shadow-mobile: mobile-unit(15.63) mobile-unit(13.17) mobile-unit(24.68) mobile-unit(-4.94) $color-shadow;
+
+
+
+

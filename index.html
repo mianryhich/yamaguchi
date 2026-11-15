@@ -6,8 +6,8 @@
     <title>Стайлер Yamaguchhi</title>
   </head>
   <body>
-    <main>
-      <section class="slide">
+    <main class="slides-stage">
+      <section class="slide slide--styler">
         <div class="slide__card">
           <h1 class="slide__title">
             ФЕН и СТАЙЛЕР<br />
@@ -44,20 +44,28 @@
 
       <section class="slide slide--lightweight">
         <div class="slide__card">
+          <div class="lightweight__feature">
+            <span class="lightweight__feature-icon" aria-hidden="true"></span>
+            <p>Лёгкость<br />и комфорт<br />в руке</p>
+          </div>
           <div class="lightweight__sticker">
             <span>Не тяжелее<br />чашки кофе</span>
           </div>
         
-          <img
-            class="lightweight__hero"
-            src="/images/slide-2-hero.png"
-            alt="Девушка держит стайлер Yamaguchi и чашку кофе"
-          />
+          <picture class="lightweight__hero">
+            <source
+              media="(max-width: 1023px)"
+              srcset="/images/slide-2-hero-mobile.png"
+            />
+          
+            <img
+              src="/images/slide-2-hero.png"
+              alt="Девушка держит стайлер Yamaguchi и чашку кофе"
+            />
+          </picture>
         
           <div class="lightweight__content">
-            <h2 class="lightweight__title">
-              Супер-<br />лёгкий
-            </h2>
+            <h2 class="lightweight__title">Супер<span class="lightweight__desktop-break">-<br /></span>лёгкий</h2>
           
             <p class="lightweight__description">
               Уменьшает усталость рук<br /> при сушке волос, делая процедуру
@@ -71,11 +79,21 @@
 
       <section class="slide slide--motor">
         <div class="slide__card">
+          <div class="motor__feature">
+            <span class="motor__feature-icon" aria-hidden="true"></span>
+            <p>Инновационный<br />японский мотор</p>
+          </div>
+          <img
+            class="motor__image-mobile"
+            src="/images/motor-mobile.png"
+            alt="Внутреннее устройство бесщёточного мотора Yamaguchi"
+          />
           <div class="motor__content">
-            <h2 class="motor__title">
-              Для ценителей комфорта&nbsp;<br />
-              и качества в уходе за волосами
-            </h2>
+          <h2 class="motor__title">
+            <span class="motor__title-intro">Для ценителей</span>
+            <span class="motor__title-main">комфорта<br />и качества</span>
+            <span class="motor__title-ending">в уходе за волосами</span>
+          </h2>
           
             <p class="motor__subtitle">Бесщеточный мотор BLDC</p>
           </div>
@@ -86,6 +104,46 @@
         </div>
       </section>
     </main>
+
+    <nav class="wheel" aria-label="Навигация по слайдам">
+      <img
+        class="wheel__track"
+        src="/images/wheel-track.svg"
+        alt=""
+      />
+        
+      <div class="wheel__items">
+        <button
+          class="wheel__button is-active"
+          type="button"
+          data-slide="0"
+          aria-label="Фен-стайлер 2 в 1"
+          aria-current="true"
+        >
+          <span class="wheel__icon wheel__icon--styler"></span>
+        </button>
+      
+        <button
+          class="wheel__button"
+          type="button"
+          data-slide="1"
+          aria-label="Суперлёгкий"
+        >
+          <span class="wheel__icon wheel__icon--feather"></span>
+        </button>
+      
+        <button
+          class="wheel__button"
+          type="button"
+          data-slide="2"
+          aria-label="Инновационный японский мотор"
+        >
+          <span class="wheel__icon wheel__icon--fan"></span>
+        </button>
+      </div>
+    
+      <p class="wheel__label">Фен-стайлер<br />2 в 1</p>
+    </nav>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
