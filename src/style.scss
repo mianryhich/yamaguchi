@@ -737,3 +737,11 @@
   }
 }
 
+html:not(.slides-ready) {
+  .slide .slide__card,
+  .wheel__items,
+  .wheel__button {
+    transition: none;
+  }
+}
+

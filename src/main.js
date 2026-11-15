@@ -240,6 +240,12 @@ function configureLayout() {
   updateWheel(false);
 }
 
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    document.documentElement.classList.add('slides-ready');
+  });
+});
+
 desktop.addEventListener('change', configureLayout);
 
 configureLayout();
