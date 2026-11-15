@@ -6,6 +6,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 $element-shadow: 15.63px 13.17px 24.68px -4.94px rgb(65 60 57 / 21%);
 
 
@@ -143,5 +151,123 @@ img {
     text-align: right;
 
     box-shadow: $element-shadow;
+  }
+}
+
+// Второй слайд
+
+.slide--lightweight {
+  .slide__card {
+    position: relative;
+    isolation: isolate;
+
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: center;
+
+    min-height: 0;
+    aspect-ratio: 1240 / 800;
+    padding: 0;
+    overflow: hidden;
+
+    background-image: url('/images/slide-2-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.lightweight {
+  &__hero {
+    position: absolute;
+    top: 0;
+    left: 10.32%;
+
+    width: 53.93%;
+    height: auto;
+  }
+
+&__content {
+  position: relative;
+  grid-column: 2;
+  align-self: start;
+
+  min-width: 0;
+  margin-top: 272px;
+  padding: 0 66px 0 20px;
+
+  color: #fff;
+  text-align: center;
+}
+
+  &__title {
+    width: 246px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    font-weight: 600;
+    font-size: 60.45px;
+    line-height: 1.01;
+    letter-spacing: -0.01em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    width: 344px;
+    max-width: 100%;
+    margin: 34px auto 0;
+
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.67;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  &__weight {
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 10px 29px;
+
+    border-radius: 60px;
+    background-color: #fff;
+    color: #4b4b4b;
+
+    font-size: 27.73px;
+    line-height: 1.27;
+  }
+
+  &__sticker {
+    position: absolute;
+    top: 35px;
+    left: 43px;
+    z-index: 1;
+  
+    display: grid;
+    place-items: center;
+  
+    width: 180px;
+    height: 180px;
+  
+    background-image: url('/images/lightweight-badge.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  
+    color: #fff;
+    text-align: center;
+  
+    span {
+      width: 127px;
+    
+      font-size: 21.86px;
+      font-weight: 600;
+      line-height: 1.13;
+      letter-spacing: -0.01em;
+    
+      transform: rotate(-10.99deg);
+    }
   }
 }
