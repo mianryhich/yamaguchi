@@ -244,30 +244,111 @@ img {
     top: 35px;
     left: 43px;
     z-index: 1;
-  
+
     display: grid;
     place-items: center;
-  
+
     width: 180px;
     height: 180px;
-  
+
     background-image: url('/images/lightweight-badge.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-  
+
     color: #fff;
     text-align: center;
-  
+
     span {
       width: 127px;
-    
+
       font-size: 21.86px;
       font-weight: 600;
       line-height: 1.13;
       letter-spacing: -0.01em;
-    
+
       transform: rotate(-10.99deg);
+    }
+  }
+}
+
+// Третий слайд
+
+.slide--motor {
+  .slide__card {
+    position: relative;
+
+    aspect-ratio: 1240 / 800;
+    padding: 0;
+    overflow: hidden;
+
+    background-image: url('/images/slide-3-bg.png');
+  }
+}
+
+.motor {
+  &__content {
+    position: absolute;
+    top: 53.07px;
+    right: 67px;
+
+    width: 861px;
+  }
+
+  &__title {
+    margin: 0;
+
+    color: #4b4b4b;
+    font-family: 'Euclid Circular A', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 45.35px;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    width: 443px;
+    margin: 13.28px 0 0 auto;
+
+    color: #737373;
+    font-family: 'Euclid Circular A', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 34.87px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-align: right;
+  }
+
+  &__sticker {
+    position: absolute;
+    top: 582px;
+    right: 46px;
+
+    display: grid;
+    place-items: center;
+
+    width: 180px;
+    height: 180px;
+
+    background-image: url('/images/lightweight-badge.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    color: #fff;
+    text-align: center;
+
+    span {
+      width: 108px;
+        
+      font-family: 'Euclid Circular A', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 21.86px;
+      line-height: 1.13;
+      letter-spacing: -0.01em;
+      text-align: right;
     }
   }
 }
