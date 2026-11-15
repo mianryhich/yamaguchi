@@ -387,12 +387,10 @@
     }
 
     .slide__title {
-      position: absolute;
-      top: mobile-unit(21);
-      left: mobile-unit(20);
+      position: static;
 
       width: mobile-unit(280);
-      margin: 0;
+      margin: mobile-unit(21) auto 0;
       padding: 0;
 
       font-size: mobile-unit(25.04);
@@ -405,11 +403,9 @@
     .slide__badge {
       font-size: mobile-unit(33.76);
 
-      position: absolute;
-      top: mobile-unit(88);
-      left: mobile-unit(108.31);
+      position: static;
 
-      margin: 0;
+      margin: mobile-unit(16.42) auto 0;
       padding: mobile-unit(6.31) mobile-unit(18.94);
 
       border-radius: mobile-unit(31.56);
